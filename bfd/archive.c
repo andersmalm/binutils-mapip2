@@ -2130,7 +2130,7 @@ _bfd_write_archive_contents (bfd *arch)
       struct ar_hdr hdr;
 
       memset (&hdr, ' ', sizeof (struct ar_hdr));
-      memcpy (hdr.ar_name, ename, strlen (ename));
+      memcpy (hdr.ar_name, ename, strlen (ename));     
       /* Round size up to even number in archive header.  */
       _bfd_ar_spacepad (hdr.ar_size, sizeof (hdr.ar_size), "%-10ld",
                         (elength + 1) & ~(bfd_size_type) 1);

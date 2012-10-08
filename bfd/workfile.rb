@@ -74,8 +74,12 @@ work.instance_eval do
 		'dwarf2.c' => ' -DDEBUGDIR=\"./debug\"',
 		'bfd.c' => ' -Wno-missing-format-attribute',
 		'archive.c' => ' -Wno-nested-externs',
-		'plugin.c' => ' -Wno-missing-format-attribute -DBINDIR=\"\" -Wno-vla',
+		'plugin.c' => ' -Wno-missing-format-attribute -DBINDIR=\"\"',
 	}
+	def setup
+		super
+		@SPECIFIC_CFLAGS['plugin.c'] << ' -Wno-vla' if(@GCC_V4_SUB >= 3)
+	end
 	@NAME = 'bfd'
 end
 

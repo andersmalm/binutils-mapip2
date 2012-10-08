@@ -83,8 +83,8 @@ extern "C" {
 /* The word size of the default bfd target.  */
 #define BFD_DEFAULT_TARGET_SIZE 32
 
-#define BFD_HOST_64BIT_LONG 1
-#define BFD_HOST_64BIT_LONG_LONG 0
+#define BFD_HOST_64BIT_LONG 0
+#define BFD_HOST_64BIT_LONG_LONG 1
 #if 1
 #define BFD_HOST_64_BIT long long
 #define BFD_HOST_U_64_BIT unsigned long long
@@ -138,7 +138,7 @@ typedef BFD_HOST_U_64_BIT bfd_size_type;
 typedef BFD_HOST_U_64_BIT symvalue;
 
 #if BFD_HOST_64BIT_LONG
-#define BFD_VMA_FMT "l"
+#define BFD_VMA_FMT "llu"
 #elif defined (__MSVCRT__)
 #define BFD_VMA_FMT "I64"
 #else

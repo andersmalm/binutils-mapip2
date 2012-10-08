@@ -46,9 +46,10 @@ module BinutilsModule
 		@PREREQUISITES = [
 			ConfigHeaderTask.new(self)
 		]
-		@EXTRA_INCLUDES = ['../include', '..']
+		@EXTRA_INCLUDES = ['../include', '..', '/opt/local/include']
 		@EXTRA_CFLAGS = ''+
 			' -Wno-declaration-after-statement'+
+			' -Wno-unreachable-code'+
 			' -DARCH_SIZE=32'+
 			''
 	end
