@@ -78,6 +78,10 @@ extern "C" {
 /* The word size used by BFD on the host.  This may be 64 with a 32
    bit target if the host is 64 bit, or if other 64 bit targets have
    been selected with --enable-targets, or if --enable-64-bit-bfd.  */
+#ifdef __APPLE__
+#define __SIZEOF_POINTER__ 8
+#endif
+
 #if __SIZEOF_POINTER__ == 4
 #define BFD_ARCH_SIZE 32
 
@@ -154,7 +158,7 @@ typedef BFD_HOST_U_64_BIT bfd_size_type;
 typedef BFD_HOST_U_64_BIT symvalue;
 
 #if BFD_HOST_64BIT_LONG
-#define BFD_VMA_FMT "llu"
+#define BFD_VMA_FMT "l"
 #elif defined (__MSVCRT__)
 #define BFD_VMA_FMT "I64"
 #else

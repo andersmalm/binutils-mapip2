@@ -124,4 +124,4 @@ work.instance_eval do
 end
 
 work.invoke
-sh "cp -vur ldscripts/ #{CONFIG_INSTALLDIR}"
+sh "cp -vr ldscripts/ #{CONFIG_INSTALLDIR}"

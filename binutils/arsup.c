@@ -126,11 +126,11 @@ ar_directory (char *ar_name, struct list *list, char *output)
    fclose (outfile);
 }
 
+extern int interactive;
+
 void
 prompt (void)
-{
-  extern int interactive;
-
+{  
   if (interactive)
     {
       printf ("AR >");
